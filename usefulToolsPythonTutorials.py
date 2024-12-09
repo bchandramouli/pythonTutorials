@@ -1,5 +1,7 @@
 #!/usr/bin/env python3 
 
+#thanks to @patloeber's youtube channel
+
 import timeit
 
 # if GC measurements are needed? timeit turns off GC while timing :)

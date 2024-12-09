@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+#thanks to @patloeber's youtube channel
+
 myList = [0] * 5
 print(myList)
 

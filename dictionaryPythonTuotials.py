@@ -1,5 +1,7 @@
 #!/usr/bin/env python3 
 
+#thanks to @patloeber's youtube channel
+
 #dictionay - key value pairs, unordered, mutable collection 
 
 myDict = {"Name": "Mouli", "Age": 42, "Address" : "Mountain View"}

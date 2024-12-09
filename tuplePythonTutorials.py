@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+#thanks to @patloeber's youtube channel
+
 # tuple is ordered and immutable - cannot be changed after creation
 
 myStringlikeTuple = ("Max") # this is a string and not a tuple

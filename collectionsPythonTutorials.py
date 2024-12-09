@@ -7,5 +7,5 @@
 #counter, named tuple, ordered dict, default dict and the deque
 
 from collections import Counter
-
 a = "aaaa"
+myCounter = Counter(a)
