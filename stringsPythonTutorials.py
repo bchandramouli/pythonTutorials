@@ -80,6 +80,18 @@ myString = "the variable is %s" % var
 print(myString)
 
 
+#using format as opposed to c style %
+var = 3.1415167
+myString = "pi is {}". format(var)
+print(myString)
+var2 = 6
+myString = "pi is {:.2f}, {}". format(var, var2)
+print(myString)
 
-
-
+#latest with the f-strings - evaluates at run time!
+var = 3.1415167
+myString = f"pi is {var}"
+print(myString)
+var2 = 6
+myString = f"pi is {var}, {var2 * 3}"
+print(myString)

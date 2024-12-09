@@ -1,5 +1,8 @@
 #!/usr/bin/env python3 
 
+#thanks to @patloeber's youtube channel
+
+
 #set - unordered, mutable, but only unqiue values (no duplicates)
 # uses {} to define
 

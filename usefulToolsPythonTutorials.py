@@ -2,8 +2,6 @@
 
 import timeit
 
-
-
 # if GC measurements are needed? timeit turns off GC while timing :)
 #timeit.Timer('for i in range(10): oct(i)', 'gc.enable()').timeit()
 
