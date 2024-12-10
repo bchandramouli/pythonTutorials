@@ -30,7 +30,7 @@ ENV/
 
 
 #log files
-*.log
+*.log*
 
 #documentation
 docs/_build/
