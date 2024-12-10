@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
+
 import sys
 from sys import getsizeof
-
 
 #thanks to @patloeber's youtube channel
 
 # can iterator and generate items lazily
 # return only when asked - so are very memory efficient and useful
 
-# defined like normal function but with a yield instead of return
+# generators defined like normal function but with a yield instead of return
 
 # see till the end for the cool applications
 
@@ -34,12 +34,10 @@ print(value)
 for i in g:
     print(i)
 
-
 #reset g
 g = myGenerator()
 # can be used as inputs to functions that take iterables
 print(sum(g))
-
 
 g = myGenerator()
 # generate a list
@@ -111,4 +109,3 @@ print(sys.getsizeof(myGenerator))
 # example with list comprehension but look at memeory... :(
 myList = [i for i in range(100000) if i % 2 == 0]
 print(sys.getsizeof(myList))
-
