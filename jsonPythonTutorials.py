@@ -1,10 +1,7 @@
 #!/usr/bin/env python3 
 
 #thanks to @patloeber's youtube channel
-
-import json
-
-person = { "firstName" : "Jane", "lastName" : "Doe", "age" : 5, "hasChildren": False, "titles": ['engineer', 'tester']}
+" : 5, "hasChildren": False, "titles": ['engineer', 'tester']}
 
 # python objects to json types mapping
 # dictionary -> Object
