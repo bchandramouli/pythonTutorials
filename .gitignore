@@ -1,0 +1,36 @@
+# Byte-compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+develop-eggs/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE-specific files
+.idea/
+.vscode/
+*.pydevproject
+*.project
+*.pypro
+
+
+#log files
+*.log
+
+#documentation
+docs/_build/
