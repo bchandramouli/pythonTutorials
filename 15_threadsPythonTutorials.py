@@ -61,7 +61,7 @@ if __name__ == "__main__":
     num_processes = os.cpu_count()
     print(f"num cores = {num_processes}")
 
-    # create procesess
+    # create a process
     for i in range(num_processes):
         # target is the entry point
         p = Process(target=square_numbers)
@@ -79,15 +79,39 @@ if __name__ == "__main__":
     print('end processes in main')
 
 
+    #
+    # Threading!!!
+    #
+
     # let's do threading now
-    from threading import Thread
+    from threading import Thread, Lock
+    import time
+
+    database_value = 0
+
+    def increase(lock):
+        global database_value
+
+        # critical section
+        # lock.acquire()
+        # Recommended way to use lock as a context manager with the critical section
+        with lock:
+            local_copy = database_value
+            local_copy += 1
+            time.sleep(0.1) # causes race that both read the old value :(
+            database_value = local_copy
+        # don't need the release, as the context manager acquires and releases by itself
+        # lock.release()
+
+    print(f'start value is {database_value}')
 
     threads = []
-    num_threads = 10
+    num_threads = 2
 
+    lock = Lock()
     # setup the threads
     for i in range(num_threads):
-        t = Thread(target=square_numbers)
+        t = Thread(target=increase, args=(lock,))
         threads.append(t)
 
     # statr the threads
@@ -98,4 +122,6 @@ if __name__ == "__main__":
     for t in threads:
         t.join()
 
-    print('end threading in main')
+    print(f'end threading in main with value {database_value}')
+
+
