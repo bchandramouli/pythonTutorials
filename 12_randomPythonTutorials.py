@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#thanks to @patloeber's youtube channel
+# thanks to @patloeber's youtube channel
 
 # generate pseudo-random numbers
 import random
@@ -15,7 +15,7 @@ print(b)
 
 # picks from a normal distribution of mean 0 and std of 1
 c = random.normalvariate(0, 1)
-print (c)
+print(c)
 
 # pick a random element from the list
 mylist = list("ABCDEFGHIJKLMNOP")
@@ -86,10 +86,10 @@ c = np.random.randint(0, 10, 1)
 print(c)
 
 # random integers multi-d array
-d = np.random.randint(0, 10, (3,4))
+d = np.random.randint(0, 10, (3, 4))
 print(d)
 
-arr = np.array([[1,2,3], [4,5,6], [7,8,9]])
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print(arr)
 # use the rng instead of just shuffle for multi-d arrays!
 rng = np.random.default_rng()
@@ -98,7 +98,7 @@ print(arr)
 
 # can also set the seed in numpy
 np.random.seed(1)
-print(np.random.rand(3,3))
+print(np.random.rand(3, 3))
 # to reproduce the same results
 np.random.seed(1)
-print(np.random.rand(3,3))
+print(np.random.rand(3, 3))

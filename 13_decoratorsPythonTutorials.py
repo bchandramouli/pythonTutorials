@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#thanks to @patloeber's youtube channel
+# thanks to @patloeber's youtube channel
 
 # this is awesome super power  - read it carefully and use wisely :)
 
@@ -13,19 +13,23 @@ from inspect import signature
 # functions and decorators in pythons are first class object
 # which means they can be arguments and also be used a return values :)
 
+
 def start_end_decorator(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        print('Start')
+        print("Start")
         # inside the wrapper execute the function
         result = func(*args, **kwargs)
-        print('End')
+        print("End")
         return result
+
     return wrapper
+
 
 @start_end_decorator
 def print_name():
-    print('wakazoo')
+    print("wakazoo")
+
 
 # now print name has this new functionality with extended behavior :)
 
@@ -35,9 +39,11 @@ def print_name():
 # now wakazoo got extened with start and end - wackaroonie
 print_name()
 
+
 @start_end_decorator
 def add(x, y):
     return x + y
+
 
 # does not work as the wrapper did not have any args and kwargs to begin with
 sumxy = add(5, 10)
@@ -46,6 +52,7 @@ print(sumxy)
 print(help(add))
 print(add.__name__)
 
+
 def repeat(num_times):
     def decorator_repeat(func):
         @functools.wraps(func)
@@ -53,7 +60,9 @@ def repeat(num_times):
             for _ in range(num_times):
                 result = func(*args, **kwargs)
             return result
+
         return wrapper
+
     return decorator_repeat
 
 
@@ -66,7 +75,9 @@ def debug(func):
         print(f"Calling {func.__name__!r}({signature})")
         result = func(*args, **kwargs)
         return result
+
     return wrapper
+
 
 # decorators exectued in the order they are listed
 # overlay a debug decorator - this is awesome!!! Love it!!!
@@ -74,9 +85,11 @@ def debug(func):
 # repeats the inner function 3 times
 @repeat(num_times=3)
 def greet(name):
-    print(f'Hello {name}')
+    print(f"Hello {name}")
 
-greet('chabbu')
+
+greet("chabbu")
+
 
 # class decorators instead of function decorators
 # typical used if you want to maintain state
@@ -93,10 +106,11 @@ class CountCalls:
         print(f"!!! executed {self.num_calls} times")
         return self.func(*args, **kwargs)
 
+
 # tracks how many times we have executed this function
 @CountCalls
 def sayHello():
-    print('Hello')
+    print("Hello")
 
 
 sayHello()

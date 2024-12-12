@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-#thanks to @patloeber's youtube channel
+# thanks to @patloeber's youtube channel
 
 # Let's start with multiprocessing
 
 import os
 from multiprocessing import Process, Value, Array, Lock
-from multiprocessing import Queue # import Queue from multiprocessing, not queue!
+from multiprocessing import Queue  # import Queue from multiprocessing, not queue!
 import time
 
 from multiprocessing import Pool
 
 # Processes will need shared memory data to share info
 # either a shared value or a shared array
+
 
 def inc100(n, nums, lockInc):
     for i in range(100):
@@ -25,7 +26,8 @@ def inc100(n, nums, lockInc):
 
 def square(nums, q):
     for i in nums:
-        q.put(i*i)
+        q.put(i * i)
+
 
 def negate(nums, q):
     for i in nums:
@@ -33,7 +35,8 @@ def negate(nums, q):
 
 
 def cuber(num):
-    return(num * num * num)
+    return num * num * num
+
 
 # use this to ensure that the code responsible for creating new processes
 # is only executed when the script is run directly, not when it's imported
@@ -44,11 +47,11 @@ if __name__ == "__main__":
     num_processes = os.cpu_count()
     print(f"num cores = {num_processes}")
 
-    shared_number = Value('i', 0)
-    print('Number at beginning is', shared_number.value)
+    shared_number = Value("i", 0)
+    print("Number at beginning is", shared_number.value)
 
-    shared_array = Array('d', [0.0, 100.0, 200.0])
-    print('Array at the beginning is', shared_array[:])
+    shared_array = Array("d", [0.0, 100.0, 200.0])
+    print("Array at the beginning is", shared_array[:])
 
     lock = Lock()
 
@@ -68,9 +71,8 @@ if __name__ == "__main__":
     for p in processes:
         p.join()
 
-    print('number at end of main is ', shared_number.value)
-    print('Array at the beginning is', shared_array[:])
-
+    print("number at end of main is ", shared_number.value)
+    print("Array at the beginning is", shared_array[:])
 
     # Using queuees
     q = Queue()
@@ -104,7 +106,7 @@ if __name__ == "__main__":
     pool.close()
     pool.join()
 
-    print(result) #prints an array of numbers cubed!!!
+    print(result)  # prints an array of numbers cubed!!!
 
 
 # Asynchronous calls to map and apply for a different day!!!

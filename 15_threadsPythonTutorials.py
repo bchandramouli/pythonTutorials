@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#thanks to @patloeber's youtube channel
+# thanks to @patloeber's youtube channel
 
 # Process is an instance of a program
 # + takes advantages of multiple cpus and cores
@@ -47,10 +47,12 @@ import os
 from multiprocessing import Process
 import time
 
+
 def square_numbers():
     for i in range(100):
-        i*i
+        i * i
         time.sleep(0.1)
+
 
 # use this to ensure that the code responsible for creating new processes
 # is only executed when the script is run directly, not when it's imported
@@ -76,8 +78,7 @@ if __name__ == "__main__":
     for p in processes:
         p.join()
 
-    print('end processes in main')
-
+    print("end processes in main")
 
     #
     # Threading!!!
@@ -98,12 +99,12 @@ if __name__ == "__main__":
         with lock:
             local_copy = database_value
             local_copy += 1
-            time.sleep(0.1) # causes race that both read the old value :(
+            time.sleep(0.1)  # causes race that both read the old value :(
             database_value = local_copy
         # don't need the release, as the context manager acquires and releases by itself
         # lock.release()
 
-    print(f'start value is {database_value}')
+    print(f"start value is {database_value}")
 
     threads = []
     num_threads = 2
@@ -122,6 +123,4 @@ if __name__ == "__main__":
     for t in threads:
         t.join()
 
-    print(f'end threading in main with value {database_value}')
-
-
+    print(f"end threading in main with value {database_value}")

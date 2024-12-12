@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
-#thanks to @patloeber's youtube channel
+# thanks to @patloeber's youtube channel
 import os
+
 # let's do threading now
 from threading import Thread, Lock, currentThread
 from queue import Queue
 import time
+
 
 def worker(q, lock):
     while True:
         value = q.get()
         with lock:
             # as q's are thread safe, only print needs to be protected
-            print(f'in {currentThread().name} got {value}')
+            print(f"in {currentThread().name} got {value}")
         q.task_done()
+
 
 # use this to ensure that the code responsible for creating new processes
 # is only executed when the script is run directly, not when it's imported
@@ -27,7 +30,7 @@ if __name__ == "__main__":
         thread = Thread(target=worker, args=(q, lock))
         # default is not a daemon thread
         # daemon threads are background thread that get killed when the main thread is done
-        thread.daemon= True
+        thread.daemon = True
         thread.start()
 
     for i in range(1, 21):
