@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+#thanks to @patloeber's youtube channel
+
 """
 - positional and keyword arguments
 - default arguments
@@ -8,7 +11,8 @@
 """
 
 def print_name(name):
-    print(f"Name is {name}")
+    g_number = 3 # references the local variable not the global g_number!
+    print(f"Name is {name} and global number is {g_number}")
 
 def foo(a, b, c, d=4):
     print(a, b, c, d)
@@ -25,6 +29,9 @@ def fargs(a, b, *args, **kwargs):
 
 def stargs(a, b, *, c, d):
     print(a,b, c, d)
+
+g_number = 100000
+print(f"global number is {g_number}")
 
 print_name('China')
 # d is the default argument, default args must be at the end
@@ -50,3 +57,26 @@ foo(*my_list)
 my_dict = {'a': 100, 'b':200, 'c': 300}
 # needs **
 foo(**my_dict)
+
+"""
+- a variable created inside a function is local variable
+- for a global reference, we need to explicitly call reference it with the global keyword
+- see g_number example above  
+"""
+
+
+# examples of mutable and immutable numbers
+def mutargs(x):
+    x = 5 #  this is a local var, the apssed arg is immutable
+
+def mutargslist(list):
+    list.append(4) # list is mutable and can be modified in the function
+    list[0] = -10
+
+var = 10
+mutargs(10)
+print(var)
+
+my_list = [1,2,3]
+mutargslist(my_list)
+print(my_list)

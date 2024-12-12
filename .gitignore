@@ -32,5 +32,8 @@ ENV/
 #log files
 *.log*
 
+#txt files
+*.txt*
+
 #documentation
 docs/_build/
