@@ -1,7 +1,10 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 
 #thanks to @patloeber's youtube channel
-" : 5, "hasChildren": False, "titles": ['engineer', 'tester']}
+
+import json
+
+person = {"name" : "Jane", "age" : 5, "hasChildren": False, "titles": ['engineer', 'tester']}
 
 # python objects to json types mapping
 # dictionary -> Object
@@ -25,7 +28,6 @@ print(person)
 with open('person.json', 'r') as file:
 	person = json.load(file)
 	print(person)
-
 
 class User:
 	def __init__(self, name, age):
