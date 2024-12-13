@@ -60,8 +60,8 @@ from logging.handlers import TimedRotatingFileHandler
 handler = TimedRotatingFileHandler("timed_app.log", when="s", interval=5, backupCount=5)
 logger.addHandler(handler)
 
-for _ in range(100000):
-    logger.info("error file rotation")
+for _ in range(100):
+    logger.error("error file rotation")
     time.sleep(5)
 
 # create handlers that logs to a stream
@@ -73,7 +73,7 @@ stream_h.setLevel(logging.WARNING)
 file_h.setLevel(logging.ERROR)
 
 # setup formatters if the basic config above is not used
-formatter = logging.Formatter("%(name)s - %(levelname)s - %(message)s)")
+formatter = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
 stream_h.setFormatter(formatter)
 file_h.setFormatter(formatter)
 
