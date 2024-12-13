@@ -4,9 +4,10 @@
 
 import timeit
 
+from rich import print
+
 # if GC measurements are needed? timeit turns off GC while timing :)
 # timeit.Timer('for i in range(10): oct(i)', 'gc.enable()').timeit()
-
 
 print(
     timeit.timeit(stmt="[0,1,2,3,4,5]", number=1000000)
@@ -17,7 +18,6 @@ print(
 print(timeit.timeit('"-".join(str(n) for n in range(100))', number=10000))
 print(timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000))
 print(timeit.timeit('"-".join(map(str, range(100)))', number=10000))
-
 
 from timeit import default_timer as timer
 

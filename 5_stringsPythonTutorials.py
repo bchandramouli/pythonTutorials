@@ -99,3 +99,94 @@ print(myString)
 var2 = 6
 myString = f"pi is {var}, {var2 * 3}"
 print(myString)
+
+# Slicing to get characters needed
+s = "   hello   "
+print(s[3:])
+
+# strip to remove leading and trailing given characters
+# default is space
+s = " \n \t hello \n".strip("\n")
+print(s)
+
+# strip multiple chars
+s = "www.example.com".strip("cmow.")
+print(s)
+
+# remove white spaces only one side
+s = "      hello. worlds  ".lstrip()
+print(s)
+
+# if we just want to remove a prefix substring
+s = "Alexander Dumas".lstrip("Alexander")
+print(s)
+
+# replace space with -
+s = "string work in pyton".replace(" ", "_")
+print(s)
+
+# regex to replace substrings
+import re
+
+s = "string     methods                being    learnt"
+s2 = re.sub("\s+", "-", s)  # this is better as it replaces all spaces
+print(s2)
+
+# split to break a string. Can specify the delimiter
+s = "string    methods being  learnt"
+# max split specifies how many parts to split
+s2 = s.split(" ", maxsplit=1)
+print(s2)
+
+# join strings
+list = ["string", "method", "in", "python"]
+string = "".join(list)
+print(string)
+
+# uppercase
+s = "abccd".upper()
+s2 = s.lower()
+print(s)
+print(s2)
+print(s.isupper())
+print(s2.islower())
+
+# swapcase
+print(s2.swapcase())
+
+# alpha check
+print(s.isalpha())
+print(s2.isnumeric())
+print(s.isalnum())
+
+# count
+print(f"count of chrs is {s2.count('c')}")
+
+# substring
+s = "i wanna be awesome"
+idx = s.find("wan", 2)  # alos has rfind - find from back
+print(idx)
+print(s[idx:])
+
+# starts and endswith
+print("Patrick".startswith("P"))
+
+# partition - splits at the first occurence of a check string
+# returns a tuple
+# first item - beginning part of original string
+# middle item - check string
+# end item - ending part of the original sting
+awstr = "Learning Python is awesome"
+parts = awstr.partition("is")
+print(parts)
+
+# center , ljust, and rjust
+center = awstr.center(35, "-")
+print(center)
+
+# f string to format - you this already i hope!
+
+# zfill - returns string of given length with zero fill
+# number formatting
+s = "42".zfill(5)
+print(s)
